@@ -11,7 +11,8 @@ public class ViewModelTests {
 
     @Before
     public void setUpEmptyExample() {
-        viewModel = new ViewModel();
+        FakeLogger myLogger = new FakeLogger();
+        viewModel = new ViewModel(myLogger);
     }
 
     @After
@@ -369,5 +370,13 @@ public class ViewModelTests {
         assertEquals("", viewModel.getResult());
         assertEquals(Status.BAD_YEAR_FORMAT, viewModel.getStatus());
         assertFalse(viewModel.getCalculateButtonEnable());
+    }
+
+    @Test
+    public void canCreateLogger() {
+        FakeLogger myLogger = new FakeLogger();
+        ViewModel viewModelWithLogger = new ViewModel(myLogger);
+
+        assertNotNull(viewModelWithLogger);
     }
 }

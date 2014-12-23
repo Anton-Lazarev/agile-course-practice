@@ -21,8 +21,13 @@ public class ViewModel {
     private String result;
     private String status;
     private boolean isCalculateButtonEnabled;
+    private UniversalLogger logger;
 
-    public ViewModel() {
+    public ViewModel(final UniversalLogger logger) {
+        if (logger == null) {
+            throw new IllegalArgumentException("Logger parameter must be not null");
+        }
+        this.logger = logger;
         salary = "";
         workedHours = "";
         countMonth = "";
