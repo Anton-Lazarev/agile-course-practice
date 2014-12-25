@@ -411,28 +411,115 @@ public class ViewModelTests {
     @Test
          public void logWhenOneCountFieldType() {
         viewModel.setSalary("25000");
-        viewModel.countFocusLost();
 
+        viewModel.countFocusLost();
         String message = viewModel.getLog().get(0);
 
-        assertEquals(message, ViewModel.LogMessageTemplates.COUNT_MESSAGE + "Data"
-                              + ": [ Salary = " + viewModel.getSalary()
-                              + "; Worked hours = " + viewModel.getWorkedHours()
-                              + "; Count date = " + viewModel.getCountMonth()
-                              + "." + viewModel.getCountYear() + " ]");
+        assertEquals(message, "Count input updated.Data:"
+                               + " [ Salary = 25000; Worked hours = ; Count date = . ]");
     }
+
+    @Test
+    public void logWhenCountDataType() {
+        viewModel.setCountMonth("10");
+        viewModel.setCountYear("2014");
+
+        viewModel.countFocusLost();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Count input updated.Data:"
+                               + " [ Salary = ; Worked hours = ; Count date = 10.2014 ]");
+    }
+
+    @Test
+    public void logWhenAllFieldsType() {
+        viewModel.setSalary("25000");
+        viewModel.setWorkedHours("150");
+        viewModel.setCountMonth("10");
+        viewModel.setCountYear("2014");
+
+        viewModel.countFocusLost();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Count input updated.Data:"
+                              + " [ Salary = 25000; Worked hours = 150; Count date = 10.2014 ]");
+    }
+
+    @Test
+    public void logResultWithCurrentCountFields() {
+        viewModel.setSalary("15000");
+        viewModel.setWorkedHours("100");
+        viewModel.setCountMonth("9");
+        viewModel.setCountYear("2004");
+
+        viewModel.calculate();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Calculate salary.With this data:"
+                              + " [ Salary = 15000; Worked hours = 100; Count date = 9.2004 ]");
+    }
+
 
     @Test
     public void logWhenOneVacationFieldType() {
         viewModel.setVacationLength("25");
-        viewModel.vacationFocusLost();
 
+        viewModel.vacationFocusLost();
         String message = viewModel.getLog().get(0);
 
-        assertEquals(message, ViewModel.LogMessageTemplates.VACATION_MESSAGE + "Data"
-                              + ": [ Length of vacation = " + viewModel.getVacationLength()
-                              + "; Vacation start = " + viewModel.getStartVacationDay()
-                              + "." + viewModel.getVacationMonth()
-                              + "." + viewModel.getVacationYear() + " ]");
+        assertEquals(message, "Vacation input updated.Data:"
+                               + " [ Length of vacation = 25; Vacation start = .. ]");
+    }
+
+    @Test
+    public void logWhenDateOfVacationFilled() {
+        viewModel.setStartVacationDay("13");
+        viewModel.setVacationMonth("3");
+        viewModel.setVacationYear("2000");
+
+        viewModel.vacationFocusLost();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Vacation input updated.Data:"
+                               + " [ Length of vacation = ; Vacation start = 13.3.2000 ]");
+    }
+
+    @Test
+    public void logWhenCountFilledButVacationFilledNotAll() {
+        viewModel.setSalary("18000");
+        viewModel.setWorkedHours("120");
+        viewModel.setCountMonth("11");
+        viewModel.setCountYear("2009");
+        viewModel.setStartVacationDay("13");
+        viewModel.setVacationMonth("3");
+        viewModel.setVacationYear("2000");
+
+
+        viewModel.calculate();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Calculate salary.With this data:"
+                              + " [ Salary = 18000; Worked hours = 120; Count date = 11.2009 ]");
+    }
+
+    @Test
+    public void logWhenCountFilledAndVacationFilled() {
+        viewModel.setSalary("18000");
+        viewModel.setWorkedHours("120");
+        viewModel.setCountMonth("11");
+        viewModel.setCountYear("2009");
+        viewModel.setVacationLength("25");
+        viewModel.setStartVacationDay("13");
+        viewModel.setVacationMonth("3");
+        viewModel.setVacationYear("2000");
+
+        viewModel.calculate();
+        String message = viewModel.getLog().get(0);
+        String vacationMessage = viewModel.getLog().get(1);
+
+        assertEquals(message, "Calculate salary.With this data:"
+                              + " [ Salary = 18000; Worked hours = 120; Count date = 11.2009 ]");
+        assertEquals(vacationMessage, " And this vacation data"
+                                     + ": [ Length of vacation = 25; Vacation start = 13.3.2000 ]");
     }
 }

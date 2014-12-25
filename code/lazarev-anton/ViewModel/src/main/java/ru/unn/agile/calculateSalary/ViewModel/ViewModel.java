@@ -93,6 +93,7 @@ public class ViewModel {
                                              , Integer.parseInt(countMonth)
                                              , 1))
                 .setLengthOfVacation(0);
+        logger.textInLog(createCalculateLogMessage());
         if (isOneVacationFieldNotDefault()) {
             if (!isVacationInputCorrect()) {
                 return;
@@ -101,9 +102,9 @@ public class ViewModel {
                        .setCountingMonth(LocalDate.of(Integer.parseInt(vacationYear)
                                        , Integer.parseInt(vacationMonth)
                                        , Integer.parseInt(startVacationDay)));
+        logger.textInLog(addVacationInCalculateLogMessage());
         }
         result = getMoneyFormatInCashValue(countPeriod);
-        logger.textInLog(createCalculateLogMessage());
         status = Status.CASH;
     }
 
@@ -268,16 +269,16 @@ public class ViewModel {
                             + "; Worked hours = " + workedHours
                             + "; Count date = " + countMonth
                             + "." + countYear + " ]";
-        if (isVacationInputAvailable()) {
-            finalMessage =
-                    finalMessage + "And this vacation data"
+        return finalMessage;
+    }
+
+    private String addVacationInCalculateLogMessage() {
+        String addVacationMessage = " And this vacation data"
                             + ": [ Length of vacation = " + vacationLength
                             + "; Vacation start = " + startVacationDay
                             + "." + vacationMonth
                             + "." + vacationYear + " ]";
-            return finalMessage;
-        }
-        return finalMessage;
+        return addVacationMessage;
     }
 
     private boolean isCountInputCorrect() {
