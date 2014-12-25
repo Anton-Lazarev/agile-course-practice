@@ -522,4 +522,57 @@ public class ViewModelTests {
         assertEquals(vacationMessage, " And this vacation data"
                                      + ": [ Length of vacation = 25; Vacation start = 13.3.2000 ]");
     }
+
+    @Test
+    public void notLogEqualInputInCount() {
+        viewModel.setSalary("18000");
+        viewModel.setSalary("18000");
+        viewModel.setSalary("18000");
+
+        viewModel.countFocusLost();
+        viewModel.countFocusLost();
+        viewModel.countFocusLost();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Count input updated.Data:"
+                + " [ Salary = 18000; Worked hours = ; Count date = . ]");
+        assertEquals(1, viewModel.getLog().size());
+    }
+
+    @Test
+    public void notLogEqualInputInVacation() {
+        viewModel.setStartVacationDay("35");
+        viewModel.setStartVacationDay("35");
+        viewModel.setStartVacationDay("35");
+
+        viewModel.vacationFocusLost();
+        viewModel.vacationFocusLost();
+        viewModel.vacationFocusLost();
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, "Vacation input updated.Data:"
+                + " [ Length of vacation = ; Vacation start = 35.. ]");
+        assertEquals(1, viewModel.getLog().size());
+    }
+
+    @Test
+    public void notLogEqualInputInBothTypesOfFields() {
+        viewModel.setSalary("85000");
+        viewModel.setSalary("85000");
+        viewModel.setStartVacationDay("15");
+        viewModel.setStartVacationDay("15");
+
+        viewModel.countFocusLost();
+        viewModel.countFocusLost();
+        viewModel.vacationFocusLost();
+        viewModel.vacationFocusLost();
+        String countMessage = viewModel.getLog().get(0);
+        String vacationMessage = viewModel.getLog().get(1);
+
+        assertEquals(countMessage, "Count input updated.Data:"
+                + " [ Salary = 85000; Worked hours = ; Count date = . ]");
+        assertEquals(vacationMessage, "Vacation input updated.Data:"
+                + " [ Length of vacation = ; Vacation start = 15.. ]");
+        assertEquals(2, viewModel.getLog().size());
+    }
 }
