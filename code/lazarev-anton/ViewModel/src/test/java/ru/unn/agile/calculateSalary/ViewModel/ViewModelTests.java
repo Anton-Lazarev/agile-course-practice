@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import ru.unn.agile.calculateSalary.ViewModel.ViewModel.Status;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class ViewModelTests {
@@ -378,5 +380,59 @@ public class ViewModelTests {
         ViewModel viewModelWithLogger = new ViewModel(myLogger);
 
         assertNotNull(viewModelWithLogger);
+    }
+
+    @Test
+    public void checkExceptionWhenLoggerIsNull() {
+        try {
+            new ViewModel(null);
+            fail("Exception not ready");
+        } catch (IllegalArgumentException exception) {
+            assertEquals("Logger parameter must be not null", exception.getMessage());
+        } catch (Exception ex) {
+            fail("Invalid exception type");
+        }
+    }
+
+    @Test
+    public void logIsEmptyWhenCalculatorStart() {
+        List<String> log = viewModel.getLog();
+        assertEquals(0, log.size());
+    }
+
+    @Test
+    public void logIsEmptyWhenCalculateEmptyFields() {
+        viewModel.calculate();
+
+        List<String> log = viewModel.getLog();
+        assertEquals(0, log.size());
+    }
+
+    @Test
+         public void logWhenOneCountFieldType() {
+        viewModel.setSalary("25000");
+        viewModel.countFocusLost();
+
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, ViewModel.LogMessageTemplates.COUNT_MESSAGE + "Data"
+                              + ": [ Salary = " + viewModel.getSalary()
+                              + "; Worked hours = " + viewModel.getWorkedHours()
+                              + "; Count date = " + viewModel.getCountMonth()
+                              + "." + viewModel.getCountYear() + " ]");
+    }
+
+    @Test
+    public void logWhenOneVacationFieldType() {
+        viewModel.setVacationLength("25");
+        viewModel.vacationFocusLost();
+
+        String message = viewModel.getLog().get(0);
+
+        assertEquals(message, ViewModel.LogMessageTemplates.VACATION_MESSAGE + "Data"
+                              + ": [ Length of vacation = " + viewModel.getVacationLength()
+                              + "; Vacation start = " + viewModel.getStartVacationDay()
+                              + "." + viewModel.getVacationMonth()
+                              + "." + viewModel.getVacationYear() + " ]");
     }
 }
