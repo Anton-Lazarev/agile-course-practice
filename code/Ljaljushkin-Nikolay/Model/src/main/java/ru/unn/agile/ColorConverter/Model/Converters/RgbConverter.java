@@ -1,7 +1,7 @@
-package ru.unn.agile.ColorConverter.model.Converters;
+package ru.unn.agile.ColorConverter.Model.Converters;
 
-import ru.unn.agile.ColorConverter.model.ColorSpaces.ColorSpace3D;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.Rgb;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.ColorSpace3D;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.Rgb;
 
 public final class RgbConverter extends BaseConverter {
 

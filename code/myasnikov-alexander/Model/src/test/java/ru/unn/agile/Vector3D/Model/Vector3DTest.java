@@ -1,4 +1,4 @@
-package ru.unn.agile.Vector3D.Model;
+package ru.unn.agile.Vector3D.model;
 
 import org.junit.Test;
 import static org.junit.Assert.*;

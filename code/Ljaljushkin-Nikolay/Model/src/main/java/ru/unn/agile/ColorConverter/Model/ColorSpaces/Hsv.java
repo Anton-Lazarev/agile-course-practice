@@ -1,6 +1,6 @@
-package ru.unn.agile.ColorConverter.model.ColorSpaces;
+package ru.unn.agile.ColorConverter.Model.ColorSpaces;
 
-import ru.unn.agile.ColorConverter.model.Converters.HsvConverter;
+import ru.unn.agile.ColorConverter.Model.Converters.HsvConverter;
 
 public class Hsv extends ColorSpace3D {
     public static final double MAX_H = 360;

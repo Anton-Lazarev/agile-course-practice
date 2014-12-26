@@ -6,7 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.*;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.*;
 
 import java.util.ArrayList;
 import java.util.List;

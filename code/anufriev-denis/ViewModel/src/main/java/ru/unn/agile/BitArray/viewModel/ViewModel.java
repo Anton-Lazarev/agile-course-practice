@@ -6,8 +6,8 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import ru.unn.agile.BitArray.model.BitArray;
-import ru.unn.agile.BitArray.model.BitArray.Operation;
+import ru.unn.agile.BitArray.Model.BitArray;
+import ru.unn.agile.BitArray.Model.BitArray.Operation;
 
 import java.util.ArrayList;
 import java.util.List;

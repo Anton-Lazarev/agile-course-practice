@@ -10,7 +10,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import ru.unn.agile.BitArray.infrastructure.TxtLogger;
-import ru.unn.agile.BitArray.model.BitArray.*;
+import ru.unn.agile.BitArray.Model.BitArray.*;
 import ru.unn.agile.BitArray.viewModel.ViewModel;
 
 public class Calculator {

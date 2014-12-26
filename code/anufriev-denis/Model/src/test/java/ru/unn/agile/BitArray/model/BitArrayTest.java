@@ -1,4 +1,4 @@
-package ru.unn.agile.BitArray.model;
+package ru.unn.agile.BitArray.Model;
 
 import org.junit.Test;
 

@@ -3,8 +3,8 @@ package ru.unn.agile.ColorConverter.viewmodel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.ColorSpace3D;
-import ru.unn.agile.ColorConverter.model.TestUtilities.*;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.ColorSpace3D;
+import ru.unn.agile.ColorConverter.Model.TestUtilities.*;
 
 import java.util.List;
 

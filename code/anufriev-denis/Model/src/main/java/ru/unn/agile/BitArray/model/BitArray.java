@@ -1,4 +1,4 @@
-package ru.unn.agile.BitArray.model;
+package ru.unn.agile.BitArray.Model;
 
 public class BitArray {
     public static final int BIT_PER_INT = 32;

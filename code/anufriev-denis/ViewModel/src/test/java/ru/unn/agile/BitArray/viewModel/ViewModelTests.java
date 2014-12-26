@@ -3,7 +3,7 @@ package ru.unn.agile.BitArray.viewModel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.unn.agile.BitArray.model.BitArray.Operation;
+import ru.unn.agile.BitArray.Model.BitArray.Operation;
 import java.util.List;
 
 import static org.junit.Assert.*;

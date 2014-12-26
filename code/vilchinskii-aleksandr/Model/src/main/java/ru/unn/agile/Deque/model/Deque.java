@@ -1,4 +1,4 @@
-package ru.unn.agile.Deque.model;
+package ru.unn.agile.Deque.Model;
 
 import java.util.NoSuchElementException;
 

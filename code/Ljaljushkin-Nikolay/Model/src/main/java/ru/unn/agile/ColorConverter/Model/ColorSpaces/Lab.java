@@ -1,6 +1,6 @@
-package ru.unn.agile.ColorConverter.model.ColorSpaces;
+package ru.unn.agile.ColorConverter.Model.ColorSpaces;
 
-import ru.unn.agile.ColorConverter.model.Converters.LabConverter;
+import ru.unn.agile.ColorConverter.Model.Converters.LabConverter;
 
 public class Lab extends ColorSpace3D {
     public static final double MAX_L = 100;

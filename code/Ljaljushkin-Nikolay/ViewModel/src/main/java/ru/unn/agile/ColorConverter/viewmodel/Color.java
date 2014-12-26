@@ -1,9 +1,9 @@
 package ru.unn.agile.ColorConverter.viewmodel;
 
-import ru.unn.agile.ColorConverter.model.ColorSpaces.ColorSpace3D;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.Hsv;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.Lab;
-import ru.unn.agile.ColorConverter.model.ColorSpaces.Rgb;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.ColorSpace3D;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.Hsv;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.Lab;
+import ru.unn.agile.ColorConverter.Model.ColorSpaces.Rgb;
 
 public enum Color {
     HSV(new Hsv()),

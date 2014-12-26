@@ -1,6 +1,6 @@
-package ru.unn.agile.ColorConverter.model.ColorSpaces;
+package ru.unn.agile.ColorConverter.Model.ColorSpaces;
 
-import ru.unn.agile.ColorConverter.model.Converters.BaseConverter;
+import ru.unn.agile.ColorConverter.Model.Converters.BaseConverter;
 
 public abstract class ColorSpace3D extends ColorSpace {
 

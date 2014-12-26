@@ -6,7 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.collections.FXCollections;
-import ru.unn.agile.Vector3D.Model.Vector3D;
+import ru.unn.agile.Vector3D.model.Vector3D;
 
 import java.util.ArrayList;
 import java.util.List;
