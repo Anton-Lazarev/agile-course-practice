@@ -10,7 +10,6 @@ import javafx.beans.value.ObservableValue;
 import ru.unn.agile.Queue.Model.Queue;
 import java.util.ArrayList;
 import java.util.List;
-import ru.unn.agile.Queue.Model.Queue;
 import java.util.NoSuchElementException;
 
 public class ViewModel {

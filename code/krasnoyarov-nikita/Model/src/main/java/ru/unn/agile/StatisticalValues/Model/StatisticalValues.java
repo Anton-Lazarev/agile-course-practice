@@ -1,4 +1,4 @@
-package ru.unn.agile.StatisticalValues.model;
+package ru.unn.agile.StatisticalValues.Model;
 
 import java.util.ArrayList;
 import java.util.Iterator;

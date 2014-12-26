@@ -1,4 +1,4 @@
-package ru.unn.agile.StatisticalValues.model;
+package ru.unn.agile.StatisticalValues.Model;
 
 public enum Operation {
     EXPECTED_VALUE("Expected value") {

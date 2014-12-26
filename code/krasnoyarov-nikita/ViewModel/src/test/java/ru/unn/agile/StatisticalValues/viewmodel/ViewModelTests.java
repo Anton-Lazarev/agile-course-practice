@@ -3,7 +3,7 @@ package ru.unn.agile.StatisticalValues.viewmodel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import ru.unn.agile.StatisticalValues.model.Operation;
+import ru.unn.agile.StatisticalValues.Model.Operation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;

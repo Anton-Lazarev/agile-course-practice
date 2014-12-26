@@ -5,27 +5,26 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 
 public class RegexMatcher extends BaseMatcher {
-    private final String regex;
+    private final String inputRegex;
 
-    public RegexMatcher(final String regex) {
-        this.regex = regex;
+    public RegexMatcher(final String inputRegex) {
+        this.inputRegex = inputRegex;
     }
 
     public boolean matches(final Object o) {
-        return ((String) o).matches(regex);
+        return ((String) o).matches(inputRegex);
     }
 
     public void describeTo(final Description description) {
-        description.appendText("matches regex = ");
-        description.appendText(regex);
+        description.appendText("matches inputRegex = ");
+        description.appendText(inputRegex);
     }
 
     public static Matcher<? super String> matchesPattern(final String regex) {
         RegexMatcher matcher = new RegexMatcher(regex);
-        //NOTE: this ugly cast is needed to workaround 'unchecked' Java warning
         @SuppressWarnings (value = "unchecked")
-        Matcher<? super String> castedMatcher = (Matcher<? super String>)   matcher;
-        return castedMatcher;
+        Matcher<? super String> myMatcher = (Matcher<? super String>)   matcher;
+        return myMatcher;
     }
 }
 

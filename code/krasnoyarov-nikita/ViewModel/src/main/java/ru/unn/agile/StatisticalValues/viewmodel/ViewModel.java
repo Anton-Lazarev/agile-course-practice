@@ -6,8 +6,8 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import ru.unn.agile.StatisticalValues.model.StatisticalValues;
-import ru.unn.agile.StatisticalValues.model.Operation;
+import ru.unn.agile.StatisticalValues.Model.StatisticalValues;
+import ru.unn.agile.StatisticalValues.Model.Operation;
 
 import java.text.ParseException;
 import java.util.ArrayList;
